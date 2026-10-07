@@ -1,0 +1,96 @@
+
+:root {
+  /* HEX PALETA DE COLORES */
+  --paleta-lavanda:     #BAC1E3;
+  --paleta-morado:      #6E5890;
+  --paleta-crema:       #F5E2B9;
+  --paleta-cielo:       #ABD1E9;
+  --paleta-marino:      #18376E;
+  --paleta-azul-nube:   #B1C8EA;
+  --paleta-mantequilla: #FFEBAA;
+  --paleta-chocolate:   #382322;
+  --paleta-durazno:     #FDEBDE;
+
+  /* COLORES DE LA INTERFAZ */
+  --color-fondo:          #FFF9F3;  /* fondo de página */
+  --color-fondo-alterno:  #FDEBDE;  /* secciones alternadas */
+  --color-superficie:     #FFFFFF;  /* tarjetas y superficies elevadas */
+  --color-tinta:          #382322;  /* texto principal */
+  --color-tinta-suave:    #6F5A58;  /* texto secundario */
+  --color-tinta-tenue:    #8F7F7C;  /* placeholders y textos deshabilitados */
+
+  --color-primario:        #6E5890; /* acento principal */
+  --color-primario-oscuro: #54426F; /* hover-activo */
+  --color-primario-claro:  #DDE1F2; /* para fondos y badges */
+
+  --color-secundario:        #18376E; 
+  --color-secundario-oscuro: #102A57;
+  --color-secundario-claro:  #D6E8F4;
+
+  --color-acento:        #FFEBAA;   /* contraste sobre fondos oscuros */
+  --color-acento-claro:  #F5E2B9;
+
+  --color-linea:         rgba(56, 35, 34, 0.12);
+  --color-linea-fuerte:  rgba(56, 35, 34, 0.24);
+
+  --color-invertido-fondo:       #18376E; /* color de seccion invertida */
+  --color-invertido-tinta:       #FFF4DC;
+  --color-invertido-tinta-suave: rgba(255, 244, 220, 0.72);
+
+  --color-exito:   #3F7D5A;
+  --color-peligro: #B23A4A;
+
+  /* TIPOGRAFIA */
+  --fuente-titulo: 'Fraunces', 'Iowan Old Style', serif;
+  --fuente-cuerpo: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fuente-mono:   'Space Mono', 'SFMono-Regular', Menlo, monospace;
+
+  /* ESPACIADOS */
+  --espacio-1: 4px;  --espacio-2: 8px;  --espacio-3: 12px; --espacio-4: 16px;
+  --espacio-5: 24px; --espacio-6: 32px; --espacio-7: 48px; --espacio-8: 64px;
+  --espacio-9: 96px; --espacio-10: 128px;
+
+  /* -RADIOS PARA BORDES */
+  --radio-chico: 10px;
+  --radio-medio: 18px;
+  --radio-grande: 28px;
+  --radio-pildora: 999px;
+
+  /* AJUSTE SOMBRAS */
+  --sombra-suave:   0 8px 24px rgba(56, 35, 34, 0.08);
+  --sombra-elevada: 0 22px 44px rgba(56, 35, 34, 0.16);
+  --sombra-borde:   inset 0 0 0 1px var(--color-linea);
+
+  /* MOVIMIENTO */
+  --suavizado-salida: cubic-bezier(0.16, 1, 0.3, 1);
+  --duracion-rapida: 160ms;
+  --duracion-media: 320ms;
+  --duracion-lenta: 620ms;
+
+  /* AJUSTES ANCHOS Y ALTOS */
+  --ancho-maximo: 1180px;
+  --alto-encabezado: 84px;
+}
+
+/* VARIABLES DE BOOTSTRAP CON NUESTRA PALETA */
+:root {
+  --bs-body-bg: var(--color-fondo);
+  --bs-body-color: var(--color-tinta);
+  --bs-body-font-family: var(--fuente-cuerpo);
+  --bs-heading-color: var(--paleta-marino);
+  --bs-primary: var(--paleta-morado);
+  --bs-primary-rgb: 110, 88, 144;
+  --bs-link-color: var(--paleta-morado);
+  --bs-link-color-rgb: 110, 88, 144;
+  --bs-link-hover-color: var(--paleta-marino);
+  --bs-border-color: var(--color-linea);
+  --bs-focus-ring-color: rgba(110, 88, 144, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duracion-rapida: 0ms;
+    --duracion-media: 0ms;
+    --duracion-lenta: 0ms;
+  }
+}

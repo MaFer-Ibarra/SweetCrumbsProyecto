@@ -1,0 +1,601 @@
+/* PERSONALIZACION COMPONENTES BOOTSTRAP — se usan en todas las páginas. */
+
+/* BOTONES */
+.btn {
+    --bs-btn-border-radius: var(--radio-pildora);
+    --bs-btn-font-weight: 600;
+    --bs-btn-padding-x: 1.6rem;
+}
+
+.btn-sm {
+    --bs-btn-padding-x: 1.1rem;
+}
+
+.btn-primary {
+    --bs-btn-bg: var(--paleta-morado);
+    --bs-btn-border-color: var(--paleta-morado);
+    --bs-btn-color: #FFF9F3;
+    --bs-btn-hover-bg: var(--paleta-marino);
+    --bs-btn-hover-border-color: var(--paleta-marino);
+    --bs-btn-hover-color: #FFF9F3;
+    --bs-btn-active-bg: var(--paleta-marino);
+    --bs-btn-active-border-color: var(--paleta-marino);
+    --bs-btn-active-color: #FFF9F3;
+    --bs-btn-disabled-bg: var(--paleta-morado);
+    --bs-btn-disabled-border-color: var(--paleta-morado);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--paleta-marino);
+    --bs-btn-border-color: var(--paleta-marino);
+    --bs-btn-hover-bg: var(--paleta-marino);
+    --bs-btn-hover-border-color: var(--paleta-marino);
+    --bs-btn-hover-color: #FFF9F3;
+    --bs-btn-active-bg: var(--paleta-marino);
+    --bs-btn-active-border-color: var(--paleta-marino);
+    --bs-btn-active-color: #FFF9F3;
+}
+
+.btn-light {
+    --bs-btn-bg: var(--color-superficie);
+    --bs-btn-border-color: transparent;
+    --bs-btn-color: var(--paleta-marino);
+    --bs-btn-hover-bg: var(--paleta-mantequilla);
+    --bs-btn-hover-border-color: transparent;
+    --bs-btn-hover-color: var(--paleta-chocolate);
+    --bs-btn-active-bg: var(--paleta-mantequilla);
+}
+
+.seccion-invertida .btn-light {
+    --bs-btn-bg: var(--paleta-mantequilla);
+    --bs-btn-color: var(--paleta-chocolate);
+    --bs-btn-hover-bg: var(--paleta-crema);
+}
+
+/* TIPO ENCABEZADO Y NAVEGACIÓN */
+
+.encabezado-sitio {
+    background: rgba(177, 200, 234, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow var(--duracion-media), border-color var(--duracion-media);
+}
+
+.encabezado-sitio.con-scroll {
+    border-bottom-color: rgba(24, 55, 110, 0.18);
+    box-shadow: 0 2px 18px rgba(56, 35, 34, 0.08);
+}
+
+.encabezado-sitio .navbar {
+    min-height: var(--alto-encabezado);
+}
+
+.marca {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-3);
+    margin-right: var(--espacio-5);
+    white-space: nowrap;
+    color: var(--paleta-marino);
+}
+
+.marca:hover {
+    color: var(--paleta-marino);
+}
+
+.marca__logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+}
+
+.marca__nombre {
+    font-family: var(--fuente-titulo);
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.navbar-nav .nav-link {
+    color: var(--paleta-marino);
+    font-weight: 600;
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--paleta-morado);
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .nav-link.active::after {
+        content: '';
+        position: absolute;
+        left: 0.5rem;
+        right: 0.5rem;
+        bottom: 2px;
+        height: 2px;
+        background: var(--paleta-morado);
+    }
+}
+
+.navbar-toggler {
+    border-color: rgba(24, 55, 110, 0.4);
+}
+
+.boton-carrito {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.insignia-carrito {
+    background: var(--paleta-chocolate);
+    font-family: var(--fuente-mono);
+    font-size: 0.65rem;
+}
+
+/* SECCIONES INFORMACION */
+
+.seccion {
+    padding: var(--espacio-9) 0;
+}
+
+.seccion-alterna {
+    background: var(--paleta-mantequilla);
+}
+
+.seccion-opiniones {
+    background: var(--color-primario-claro);
+}
+
+.seccion-invertida {
+    background: var(--color-invertido-fondo);
+    color: var(--color-invertido-tinta);
+}
+
+.seccion-invertida h2 {
+    color: var(--color-invertido-tinta);
+}
+
+.seccion-invertida p {
+    color: var(--color-invertido-tinta-suave);
+}
+
+.seccion-invertida .sobretitulo {
+    color: var(--paleta-mantequilla);
+}
+
+.encabezado-seccion {
+    max-width: 640px;
+    margin-bottom: var(--espacio-6);
+}
+
+@media (max-width: 767.98px) {
+    .seccion {
+        padding: var(--espacio-7) 0;
+    }
+}
+
+/* FRANJA DE COLOR AL EN CABEZADO */
+.portada,
+.portada-catalogo,
+.portada-personalizador,
+.portada-pedido,
+.portada-cuenta {
+    position: relative;
+    isolation: isolate;
+}
+
+.portada::before,
+.portada-catalogo::before,
+.portada-personalizador::before,
+.portada-pedido::before,
+.portada-cuenta::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 50%;
+    width: 100vw;
+    transform: translateX(-50%);
+    z-index: -1;
+    background: linear-gradient(
+        180deg,
+        var(--paleta-azul-nube) 0%,
+        #D9E4F5 55%,
+        var(--color-fondo) 100%
+    );
+}
+
+/* SECCION PASOS NUMERADOS (COMO FUNCIONA - PAGINA INIICIO) */
+.seccion-alterna ol {
+    counter-reset: paso;
+}
+
+.paso {
+    padding-top: var(--espacio-5);
+    border-top: 1px solid rgba(56, 35, 34, 0.25);
+}
+
+.paso::before {
+    counter-increment: paso;
+    content: counter(paso, decimal-leading-zero);
+    display: block;
+    margin-bottom: var(--espacio-3);
+    font-family: var(--fuente-mono);
+    font-size: 0.8rem;
+    color: var(--paleta-morado);
+}
+
+/* TARJETA DE PRODUCTO */
+.tarjeta-producto {
+    --bs-card-border-width: 0;
+    --bs-card-bg: var(--color-superficie);
+    --bs-card-border-radius: var(--radio-grande);
+    padding: var(--espacio-4);
+    box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.14);
+    transition: transform var(--duracion-media) var(--suavizado-salida),
+                box-shadow var(--duracion-media) var(--suavizado-salida);
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra-elevada), inset 0 0 0 1.5px var(--paleta-morado);
+}
+
+.tarjeta-producto__arte {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    aspect-ratio: 1 / 0.82;
+    border-radius: var(--radio-medio);
+    color: var(--paleta-morado);
+}
+
+.tarjeta-producto__arte svg {
+    width: 62%;
+    height: 62%;
+}
+
+.tarjeta-producto__arte--pasteles {
+    background: var(--paleta-lavanda);
+    color: var(--paleta-marino);
+}
+
+.tarjeta-producto__arte--cupcakes {
+    background: var(--paleta-mantequilla);
+    color: var(--paleta-chocolate);
+}
+
+.tarjeta-producto__arte--postres {
+    background: var(--paleta-cielo);
+    color: var(--paleta-marino);
+}
+
+.tarjeta-producto__arte--galletas {
+    background: var(--paleta-durazno);
+    color: var(--paleta-chocolate);
+}
+
+.tarjeta-producto__insignia {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--color-superficie);
+    color: var(--color-tinta);
+    font-family: var(--fuente-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.tarjeta-producto__categoria {
+    margin-bottom: var(--espacio-2);
+    font-family: var(--fuente-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--paleta-morado);
+}
+
+.tarjeta-producto__descripcion {
+    font-size: 0.9rem;
+}
+
+/* DISEÑO BOTONES DE FILTOS BUSQUEDA */
+.pildora {
+    border: 0;
+    border-radius: var(--radio-pildora);
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--color-superficie);
+    color: var(--paleta-marino);
+    box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.25);
+    transition: background var(--duracion-rapida),
+                color var(--duracion-rapida),
+                box-shadow var(--duracion-rapida);
+}
+
+.pildora:hover {
+    box-shadow: inset 0 0 0 1.5px var(--paleta-morado);
+}
+
+.pildora.activo {
+    background: var(--paleta-marino);
+    color: #FFF4DC;
+    box-shadow: none;
+}
+
+/* DISEÑO FORMULARIOS */
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.form-control,.form-select {
+    border-color: var(--color-linea-fuerte);
+    border-radius: var(--radio-chico);
+    padding: 0.7rem 1rem;
+    background-color: var(--color-superficie);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--paleta-morado);
+    box-shadow: 0 0 0 0.25rem rgba(110, 88, 144, 0.22);
+}
+
+.form-check-input:checked {
+    background-color: var(--paleta-morado);
+    border-color: var(--paleta-morado);
+}
+
+.form-check-input:focus {
+    border-color: var(--paleta-morado);
+    box-shadow: 0 0 0 0.25rem rgba(110, 88, 144, 0.22);
+}
+
+.input-group-text {
+    background: var(--color-superficie);
+    border-color: var(--color-linea-fuerte);
+}
+
+/* DISEÑO DE PANEL LATERAL DEL CARRITO */
+.cajon-carrito {
+    --bs-offcanvas-width: min(420px, 100%);
+    --bs-offcanvas-bg: var(--color-fondo);
+}
+
+.cajon-carrito .offcanvas-header {
+    background: var(--paleta-azul-nube);
+}
+
+.cajon-carrito__pie {
+    padding: var(--espacio-5);
+    border-top: 1px solid var(--color-linea);
+    background: var(--paleta-durazno);
+}
+
+.carrito-vacio {
+    padding: var(--espacio-8) var(--espacio-4);
+    color: var(--color-tinta-tenue);
+}
+
+.carrito-vacio .icono {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto var(--espacio-4);
+    opacity: 0.5;
+}
+
+.articulo-carrito,
+.resumen-pedido__articulo {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: var(--espacio-3);
+    align-items: start;
+    padding: var(--espacio-4) 0;
+    border-bottom: 1px solid var(--color-linea);
+}
+
+.articulo-carrito__arte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radio-chico);
+    background: var(--color-primario-claro);
+    color: var(--paleta-morado);
+}
+
+.articulo-carrito__arte svg {
+    width: 70%;
+    height: 70%;
+}
+
+.articulo-carrito__nombre {
+    margin: 0 0 2px;
+    font-family: var(--fuente-cuerpo);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.articulo-carrito__detalle {
+    margin-bottom: var(--espacio-1);
+    font-size: 0.78rem;
+    line-height: 1.4;
+    color: var(--color-tinta-tenue);
+}
+
+.articulo-carrito__precio {
+    font-family: var(--fuente-mono);
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.fila-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 4px 0;
+}
+
+.cajon-carrito__pie .fila-total {
+    margin-bottom: var(--espacio-3);
+    font-size: 1.1rem;
+}
+
+/* DISEÑO PIE DE PAGINA */
+.pie-sitio {
+    position: relative;
+    padding: calc(var(--espacio-8) + 10px) 0 var(--espacio-5);
+    background: var(--paleta-chocolate);
+    color: var(--color-invertido-tinta);
+}
+
+.pie-sitio::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 10px;
+    background: linear-gradient(
+        90deg,
+        var(--paleta-lavanda) 0 20%,
+        var(--paleta-morado) 20% 40%,
+        var(--paleta-mantequilla) 40% 60%,
+        var(--paleta-cielo) 60% 80%,
+        var(--paleta-marino) 80% 100%
+    );
+}
+
+.pie-sitio .marca {
+    color: var(--color-invertido-tinta);
+    margin-bottom: var(--espacio-3);
+}
+
+.pie-sitio__texto {
+    max-width: 340px;
+    color: var(--color-invertido-tinta-suave);
+}
+
+.pie-sitio__titulo {
+    margin-bottom: var(--espacio-4);
+    font-family: var(--fuente-mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--paleta-mantequilla);
+}
+
+.pie-sitio a {
+    color: var(--color-invertido-tinta-suave);
+}
+
+.pie-sitio a:hover {
+    color: var(--paleta-mantequilla);
+}
+
+.pie-sitio address {
+    color: var(--color-invertido-tinta-suave);
+    font-size: 0.95rem;
+}
+
+.pie-inferior {
+    padding-top: var(--espacio-5);
+    border-top: 1px solid rgba(255, 244, 220, 0.14);
+    color: var(--color-invertido-tinta-suave);
+}
+
+/* DISEÑO AVISO / NOTIFICACIONES */
+.toast {
+    --bs-toast-border-radius: var(--radio-pildora);
+    background: var(--paleta-marino);
+}
+
+/* DISEÑO MENU DE CUENTA EN EL ENCABEZADO */
+.menu-cuenta {
+    display: flex;
+}
+
+.boton-cuenta,.boton-cuenta-sesion {
+    width: 46px;
+    height: 46px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.boton-cuenta-sesion {
+    border: 0;
+    background: var(--color-superficie);
+    box-shadow: 0 0 0 2px var(--paleta-morado);
+}
+
+.boton-cuenta-sesion::after {
+    display: none;
+}
+
+.boton-cuenta-sesion:hover,
+.boton-cuenta-sesion.show {
+    background: var(--color-superficie);
+    box-shadow: 0 0 0 3px var(--paleta-morado);
+}
+
+.avatar-cuenta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--paleta-morado);
+    color: #fff;
+    font-family: var(--fuente-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.menu-cuenta__lista {
+    min-width: 230px;
+    padding: var(--espacio-2);
+    border: 0;
+    border-radius: var(--radio-medio);
+    box-shadow: var(--sombra-elevada);
+}
+
+.menu-cuenta__lista .dropdown-item {
+    border-radius: var(--radio-chico);
+    font-weight: 500;
+}
+
+.menu-cuenta__cabecera {
+    display: grid;
+    padding: var(--espacio-2) var(--espacio-3) var(--espacio-3);
+}
+
+.menu-cuenta__cabecera small {
+    color: var(--color-tinta-tenue);
+}
+
+.aviso-solo-local {
+    margin: calc(-1 * var(--espacio-1)) 0 0;
+    text-align: center;
+    font-family: var(--fuente-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: var(--color-tinta-suave);
+}
+
+/* EVITAR QUE INFORMACIO LARGA SE DESBORDE */
+.pie-sitio address span {
+    overflow-wrap: anywhere;
+}

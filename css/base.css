@@ -1,0 +1,125 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+}
+
+/* DISEÑO TITULOS */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fuente-titulo);
+    font-weight: 600;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+h1 {
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
+    font-weight: 500;
+    margin-bottom: var(--espacio-4);
+}
+
+h2 {
+    font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+    margin-bottom: var(--espacio-4);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+    color: var(--color-tinta-suave);
+}
+
+/* DISEÑO ENLACES */
+a:not([class]) {
+    color: var(--color-primario);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+a:not([class]):hover {
+    color: var(--paleta-marino);
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primario);
+    outline-offset: 3px;
+}
+
+/* DISEÑO TEXTO DE APOYO / TEXTOS COMPLEMENTARIOS */
+.sobretitulo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--espacio-2);
+    font-family: var(--fuente-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-primario);
+}
+
+.sobretitulo::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: currentColor;
+}
+
+.entradilla {
+    font-size: 1.12rem;
+    max-width: 34em;
+    margin-bottom: var(--espacio-5);
+}
+
+.precio {
+    display: block;
+    font-family: var(--fuente-mono);
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--paleta-marino);
+}
+
+.precio small {
+    font-weight: 400;
+    color: var(--color-tinta-tenue);
+    font-size: 0.72rem;
+}
+
+/* DISEÑO ICONOS SVG EN LÍNEA */
+.icono {
+    display: block;
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.6;
+}
+
+/* AJUSTES DE NAVEGACIÓN */
+.aparecer {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity var(--duracion-lenta) var(--suavizado-salida),
+                transform var(--duracion-lenta) var(--suavizado-salida);
+}
+
+.aparecer.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    .aparecer {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

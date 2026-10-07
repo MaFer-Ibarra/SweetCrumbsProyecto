@@ -1,0 +1,46 @@
+.portada-personalizador {
+    padding: var(--espacio-6) 0 var(--espacio-4);
+    margin-bottom: var(--espacio-5);
+}
+
+.en-construccion {
+    max-width: 560px;
+    padding: var(--espacio-7) 0 var(--espacio-8);
+}
+
+.en-construccion__icono {
+    width: 120px;
+    height: 120px;
+    margin-bottom: var(--espacio-5);
+    color: var(--paleta-morado);
+}
+
+.en-construccion__vapor {
+    animation: vapor 2.6s ease-in-out infinite;
+}
+
+@keyframes vapor {
+    0%, 100% {
+        opacity: 0.25;
+        transform: translateY(2px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-3px);
+    }
+}
+
+.en-construccion h2 {
+    text-wrap: balance;
+}
+
+.en-construccion p {
+    margin-bottom: var(--espacio-5);
+    color: var(--color-tinta-suave);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .en-construccion__vapor {
+        animation: none;
+    }
+}

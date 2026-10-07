@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi cuenta — Sweet Crumbs</title>
+  <meta name="description" content="Inicia sesión o crea tu cuenta de Sweet Crumbs. Es opcional: también puedes pedir sin registrarte.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/componentes.css">
+  <link rel="stylesheet" href="../css/cuenta.css">
+</head>
+<body data-raiz="../">
+
+  <div id="sc-encabezado"></div>
+
+  <main id="paginaCuenta">
+    <section class="portada-cuenta">
+      <div class="container">
+        <div class="tarjeta-cuenta row g-0">
+
+          <!-- PANEL FONDO EN CUENTA -->
+          <aside class="col-lg-5 cuenta-panel" aria-label="Beneficios de tener una cuenta">
+            <div class="cuenta-panel__contenido">
+              <span class="sobretitulo">Tu cuenta, si quieres</span>
+              <h1>Un lugar para tus antojos.</h1>
+              <p>Crear una cuenta es opcional: puedes pedir sin registrarte. Si lo haces, todo es más rápido.</p>
+              <ul class="cuenta-ventajas list-unstyled">
+                <li><span class="cuenta-ventajas__punto"></span>Tus datos se rellenan solos al pedir</li>
+                <li><span class="cuenta-ventajas__punto"></span>Consulta tus folios en un solo lugar</li>
+                <li><span class="cuenta-ventajas__punto"></span>Guarda tus pasteles favoritos</li>
+              </ul>
+            </div>
+            <div class="cuenta-panel__escena"><img class="cuenta-panel__pastel" src="../img/cuenta-pastel.png" alt="Rebanada de pastel de zarzamora" width="700" height="568" loading="lazy"></div>
+          </aside>
+
+          <!-- FORMULARIO DE CUENTA -->
+          <div class="col-lg-7 cuenta-formulario">
+
+            <!-- Vista para visitantes -->
+            <div id="vistaVisitante">
+              <ul class="nav nav-pills cuenta-pestanas" id="pestanasCuenta" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pestanaLogin" data-bs-toggle="pill" data-bs-target="#panelLogin" type="button" role="tab" aria-controls="panelLogin" aria-selected="true">Iniciar sesión</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pestanaRegistro" data-bs-toggle="pill" data-bs-target="#panelRegistro" type="button" role="tab" aria-controls="panelRegistro" aria-selected="false">Crear cuenta</button>
+                </li>
+              </ul>
+
+              <div class="tab-content">
+
+                <!-- INICIAR SESION -->
+                <div class="tab-pane fade show active" id="panelLogin" role="tabpanel" aria-labelledby="pestanaLogin" tabindex="0">
+                  <h2 class="h3">Qué gusto verte de nuevo</h2>
+                  <p>Entra con tu correo y contraseña.</p>
+                  <form id="formularioLogin" novalidate>
+                    <div class="alert alert-danger d-none" id="errorLogin" role="alert"></div>
+                    <div class="mb-3">
+                      <label for="loginCorreo" class="form-label">Correo electrónico</label>
+                      <input type="email" class="form-control" id="loginCorreo" autocomplete="email" placeholder="tu@correo.com" required>
+                      <div class="invalid-feedback">Escribe un correo válido, por ejemplo tu@correo.com.</div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="loginClave" class="form-label">Contraseña</label>
+                      <div class="input-group has-validation">
+                        <input type="password" class="form-control" id="loginClave" autocomplete="current-password" placeholder="Tu contraseña" required>
+                        <button class="btn btn-outline-primary boton-ver-clave" type="button" data-ver-clave="loginClave" aria-pressed="false">Mostrar</button>
+                        <div class="invalid-feedback">Escribe tu contraseña.</div>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg w-100">Iniciar sesión</button>
+                  </form>
+                  <p class="cuenta-cambio">¿Aún no tienes cuenta? <button type="button" class="btn btn-link p-0" data-cambiar-pestana="pestanaRegistro">Regístrate</button></p>
+                </div>
+
+                <!-- CREA CUENTA -->
+                <div class="tab-pane fade" id="panelRegistro" role="tabpanel" aria-labelledby="pestanaRegistro" tabindex="0">
+                  <h2 class="h3">Crea tu cuenta</h2>
+                  <p>Solo te tomará un minuto.</p>
+                  <form id="formularioRegistro" novalidate>
+                    <div class="alert alert-danger d-none" id="errorRegistro" role="alert"></div>
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label for="regNombre" class="form-label">Nombre completo</label>
+                        <input type="text" class="form-control" id="regNombre" autocomplete="name" placeholder="Tu nombre" required minlength="3">
+                        <div class="invalid-feedback">Escribe tu nombre completo (mínimo 3 letras).</div>
+                      </div>
+                      <div class="col-md-7">
+                        <label for="regCorreo" class="form-label">Correo electrónico</label>
+                        <input type="email" class="form-control" id="regCorreo" autocomplete="email" placeholder="tu@correo.com" required>
+                        <div class="invalid-feedback">Escribe un correo válido.</div>
+                      </div>
+                      <div class="col-md-5">
+                        <label for="regTelefono" class="form-label">Teléfono (opcional)</label>
+                        <input type="tel" class="form-control" id="regTelefono" autocomplete="tel" placeholder="871 123 4567" inputmode="numeric">
+                        <div class="invalid-feedback">Debe tener 10 dígitos.</div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="regClave" class="form-label">Contraseña</label>
+                        <div class="input-group has-validation">
+                          <input type="password" class="form-control" id="regClave" autocomplete="new-password" placeholder="Mínimo 8 caracteres" required>
+                          <button class="btn btn-outline-primary boton-ver-clave" type="button" data-ver-clave="regClave" aria-pressed="false">Mostrar</button>
+                          <div class="invalid-feedback">Mínimo 8 caracteres, con letras y números.</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="regClave2" class="form-label">Repite la contraseña</label>
+                        <input type="password" class="form-control" id="regClave2" autocomplete="new-password" placeholder="Escríbela de nuevo" required>
+                        <div class="invalid-feedback">Las contraseñas no coinciden.</div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="regAcepto" required>
+                          <label class="form-check-label" for="regAcepto">Acepto el aviso de privacidad.</label>
+                          <div class="invalid-feedback">Debes aceptar para crear tu cuenta.</div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Crear mi cuenta</button>
+                      </div>
+                    </div>
+                  </form>
+                  <p class="cuenta-cambio">¿Ya tienes cuenta? <button type="button" class="btn btn-link p-0" data-cambiar-pestana="pestanaLogin">Inicia sesión</button></p>
+                </div>
+              </div>
+
+              <div class="cuenta-pie">
+                <a class="btn btn-outline-primary btn-sm" href="catalogo.html">Continuar sin cuenta</a>
+              </div>
+            </div>
+
+            <!-- VISTA CON SESION INICIADA (PERFIL) -->
+            <div id="vistaSesion" class="d-none">
+              <div class="perfil-cabecera">
+                <span class="perfil-avatar" id="perfilAvatar" aria-hidden="true">SC</span>
+                <div>
+                  <span class="sobretitulo">Sesión iniciada</span>
+                  <h2 class="h3 mb-0" id="perfilNombre">Nombre</h2>
+                </div>
+              </div>
+              <dl class="perfil-datos" id="perfilDatos"></dl>
+              <h3 class="h5 mt-4">Tus pedidos recientes</h3>
+              <ul class="list-unstyled perfil-pedidos" id="perfilPedidos"></ul>
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <a class="btn btn-primary" href="catalogo.html">Ver catálogo</a>
+                <a class="btn btn-outline-primary" href="personalizador.html">Personalizar un pastel</a>
+                <button type="button" class="btn btn-link text-danger" id="botonSalirPerfil">Cerrar sesión</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="sc-pie"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/datos.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/carrito.js"></script>
+  <script src="../js/navegacion.js"></script>
+  <script src="../js/cuenta.js"></script>
+  
+</body>
+</html>

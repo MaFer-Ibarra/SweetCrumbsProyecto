@@ -1,0 +1,292 @@
+.portada-cuenta {
+    padding: var(--espacio-7) 0 var(--espacio-9);
+}
+
+.tarjeta-cuenta {
+    overflow: hidden;
+    border-radius: var(--radio-grande);
+    background: var(--color-superficie);
+    box-shadow: var(--sombra-elevada), inset 0 0 0 1.5px rgba(24, 55, 110, 0.12);
+}
+
+/* PANEL DECORATIVO DE FONDO */
+.cuenta-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 560px;
+    padding: var(--espacio-7) var(--espacio-6) 0;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--paleta-marino) 0%, #3B3F82 55%, var(--paleta-morado) 100%);
+    color: var(--color-invertido-tinta);
+    isolation: isolate;
+}
+
+.cuenta-panel::before,
+.cuenta-panel::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+}
+
+.cuenta-panel::before {
+    width: 320px;
+    height: 320px;
+    top: -120px;
+    right: -110px;
+    background: rgba(186, 193, 227, 0.22);
+}
+
+.cuenta-panel::after {
+    width: 240px;
+    height: 240px;
+    bottom: 60px;
+    left: -110px;
+    background: rgba(255, 235, 170, 0.12);
+}
+
+.cuenta-panel .sobretitulo {
+    color: var(--paleta-mantequilla);
+}
+
+.cuenta-panel h1 {
+    margin-bottom: var(--espacio-4);
+    font-size: clamp(2rem, 3.4vw, 2.8rem);
+    color: var(--color-invertido-tinta);
+}
+
+.cuenta-panel p {
+    max-width: 30em;
+    color: var(--color-invertido-tinta-suave);
+}
+
+.cuenta-ventajas {
+    display: grid;
+    gap: var(--espacio-3);
+    margin: var(--espacio-5) 0 0;
+    padding: 0;
+    font-weight: 500;
+}
+
+.cuenta-ventajas li {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-3);
+}
+
+.cuenta-ventajas__punto {
+    flex-shrink: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--paleta-mantequilla);
+    box-shadow: 0 0 0 5px rgba(255, 235, 170, 0.18);
+}
+
+.cuenta-panel__escena {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--espacio-6) 0 var(--espacio-7);
+}
+
+.cuenta-panel__pastel {
+    display: block;
+    width: min(300px, 80%);
+    height: auto;
+    filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.28));
+    animation: pastelCuenta 5s ease-in-out infinite;
+}
+
+@keyframes pastelCuenta {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* FORMULARIOS */
+.cuenta-formulario {
+    padding: var(--espacio-7) var(--espacio-6);
+}
+
+.cuenta-formulario h2 {
+    margin-bottom: var(--espacio-2);
+}
+
+.cuenta-pestanas {
+    gap: var(--espacio-2);
+    margin-bottom: var(--espacio-6);
+    padding: 6px;
+    border-radius: var(--radio-pildora);
+    background: var(--color-primario-claro);
+}
+
+.cuenta-pestanas .nav-item {
+    flex: 1;
+}
+
+.cuenta-pestanas .nav-link {
+    width: 100%;
+    border-radius: var(--radio-pildora);
+    font-weight: 700;
+    color: var(--paleta-marino);
+}
+
+.cuenta-pestanas .nav-link.active {
+    background: var(--paleta-morado);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(110, 88, 144, 0.35);
+}
+
+.boton-ver-clave {
+    --bs-btn-padding-x: 1rem;
+    border-radius: 0 var(--radio-chico) var(--radio-chico) 0 !important;
+    font-size: 0.8rem;
+}
+
+.input-group > .form-control:not(:last-child) {
+    border-radius: var(--radio-chico) 0 0 var(--radio-chico);
+}
+
+.cuenta-cambio {
+    margin: var(--espacio-5) 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.cuenta-cambio .btn-link {
+    font-weight: 700;
+    vertical-align: baseline;
+    color: var(--color-primario);
+}
+
+.cuenta-pie {
+    display: flex;
+    justify-content: center;
+    margin-top: var(--espacio-6);
+    padding-top: var(--espacio-5);
+    border-top: 1px solid var(--color-linea);
+}
+
+/* VISTA PERFIL CON SESION INICIADA */
+.perfil-cabecera {
+    display: flex;
+    align-items: center;
+    gap: var(--espacio-4);
+    margin-bottom: var(--espacio-5);
+}
+
+.perfil-avatar {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--paleta-morado);
+    color: #fff;
+    font-family: var(--fuente-titulo);
+    font-size: 1.6rem;
+    font-weight: 600;
+    box-shadow: 0 0 0 6px var(--color-primario-claro);
+}
+
+.perfil-datos {
+    margin: 0;
+    padding: var(--espacio-2) var(--espacio-5);
+    border-radius: var(--radio-medio);
+    background: var(--color-fondo);
+    box-shadow: var(--sombra-borde);
+}
+
+.perfil-datos div {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--espacio-4);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-linea);
+    font-size: 0.92rem;
+}
+
+.perfil-datos div:last-child {
+    border-bottom: 0;
+}
+
+.perfil-datos dt {
+    font-weight: 400;
+    color: var(--color-tinta-suave);
+}
+
+.perfil-datos dd {
+    margin: 0;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+}
+
+.perfil-pedidos {
+    display: grid;
+    gap: var(--espacio-2);
+}
+
+.pedido-previo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--espacio-3);
+    padding: 12px var(--espacio-4);
+    border-radius: var(--radio-chico);
+    background: var(--color-fondo-alterno);
+    font-size: 0.85rem;
+}
+
+.pedido-previo__folio {
+    font-family: var(--fuente-mono);
+    font-weight: 700;
+    color: var(--paleta-marino);
+}
+
+.pedido-previo--vacio {
+    justify-content: center;
+    color: var(--color-tinta-tenue);
+}
+
+@media (max-width: 991.98px) {
+    .cuenta-panel {
+        min-height: 0;
+        padding: var(--espacio-6) var(--espacio-5) 0;
+    }
+    .cuenta-panel__escena {
+        padding: var(--espacio-5) 0 var(--espacio-6);
+    }
+    .cuenta-panel__pastel {
+        width: 220px;
+    }
+    .cuenta-formulario {
+        padding: var(--espacio-6) var(--espacio-5);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .portada-cuenta {
+        padding-top: var(--espacio-5);
+    }
+    .cuenta-formulario {
+        padding: var(--espacio-5) var(--espacio-4);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cuenta-panel__pastel {
+        animation: none;
+    }
+}

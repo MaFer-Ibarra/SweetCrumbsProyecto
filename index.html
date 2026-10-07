@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sweet Crumbs — Repostería pensada para ti, hasta el último detalle</title>
+  <meta name="description" content="Repostería pensada para ti, hasta el último detalle. Pasteles, cupcakes, galletas y postres artesanales en Lerdo, Durango; personaliza tu pastel en 3D y sigue tu pedido con un folio.">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <link rel="stylesheet" href="css/inicio.css">
+</head>
+<body data-raiz="">
+
+  <div id="sc-encabezado"></div>
+
+  <main>
+
+    <!-- SECCION PORTADA PRINCIPAL -->
+    <section class="portada" aria-labelledby="tituloPortada">
+      <div class="container">
+        <div class="row align-items-center gy-5 gx-lg-5">
+          <div class="col-lg-6 order-lg-last">
+            <figure class="portada__foto mb-0">
+              <img class="portada__imagen" src="img/pastel-zarzamora.png" width="2000" height="2000" alt="Rebanada de pastel de zarzamora y lavanda con capas de bizcocho morado, crema rosa y cobertura brillante" fetchpriority="high">
+            </figure>
+          </div>
+          <div class="col-lg-6">
+            <span class="sobretitulo">Sweet Crumbs · Lerdo, Durango</span>
+            <h1 id="tituloPortada">Repostería pensada para ti, hasta el&nbsp;último&nbsp;detalle.</h1>
+            <p class="entradilla">Pasteles, cupcakes, galletas y postres hechos a mano. Tú eliges el sabor, el tamaño y cada decoración; nosotros lo horneamos el mismo día en que pasas por él.</p>
+            <div class="d-flex flex-wrap gap-3 mb-4">
+              <a href="cliente/personalizador.html" class="btn btn-primary btn-lg">Personalizar mi pastel</a>
+              <a href="cliente/catalogo.html" class="btn btn-outline-primary btn-lg">Ver catálogo</a>
+            </div>
+            <ul class="etiquetas-portada list-unstyled d-flex flex-wrap gap-4 mb-0">
+              <li><span class="punto"></span>Folio de seguimiento</li>
+              <li><span class="punto"></span>Recoge en la fecha que elijas</li>
+              <li><span class="punto"></span>100% hecho a mano</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION COMO FUNCIONA -->
+    <section class="seccion seccion-alterna" aria-labelledby="tituloPasos">
+      <div class="container">
+        <div class="encabezado-seccion text-center mx-auto">
+          <span class="sobretitulo">De la idea al pedido</span>
+          <h2 id="tituloPasos">Cómo funciona</h2>
+        </div>
+        <ol class="row row-cols-1 row-cols-md-3 g-4 list-unstyled mb-0">
+          <li class="col"><article class="paso aparecer"><h3>Elige tu base</h3><p>Selecciona el sabor, el tamaño y cuántos pisos quieres para tu pastel.</p></article></li>
+          <li class="col"><article class="paso aparecer"><h3>Decora en 3D</h3><p>Agrega relleno, flores, chispas o un mensaje, y ve el resultado en tiempo real.</p></article></li>
+          <li class="col"><article class="paso aparecer"><h3>Confirma y da seguimiento</h3><p>Elige la fecha en que lo recogerás y recibe un folio único para rastrear tu pedido.</p></article></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECCION DESTACADOS DEL CATALOGO -->
+    <section class="seccion" aria-labelledby="tituloDestacados">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-end justify-content-between gap-3 mb-5">
+          <div class="encabezado-seccion mb-0">
+            <span class="sobretitulo">Los favoritos de la semana</span>
+            <h2 id="tituloDestacados" class="mb-0">Destacados de la vitrina</h2>
+          </div>
+          <a href="cliente/catalogo.html" class="btn btn-outline-primary btn-sm">Ver todo el catálogo</a>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-5 g-4" id="cuadriculaDestacados"></div>
+      </div>
+    </section>
+
+    <!-- SECCION DE OPINIONEs -->
+    <section class="seccion seccion-opiniones" aria-labelledby="tituloOpiniones">
+      <div class="container">
+        <div class="row gy-5 gx-lg-5 align-items-center">
+          <div class="col-lg-4">
+            <span class="sobretitulo">Clientes felices</span>
+            <h2 id="tituloOpiniones">Lo que dicen de nosotros</h2>
+            <p>Cada pastel acompaña un momento importante. Estas son algunas de las historias que nos han compartido.</p>
+            <div class="resumen-opiniones">
+              <p class="resumen-opiniones__nota"><strong>4.9</strong> <span>de 5</span></p>
+              <span class="estrellas" role="img" aria-label="Calificación promedio: 4.9 de 5 estrellas"></span>
+              <p class="resumen-opiniones__texto mb-0">Calificación promedio de quienes ya probaron nuestros pedidos.</p>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <div id="carruselOpiniones" class="carousel slide" data-bs-ride="carousel" data-bs-interval="8000" role="region" aria-label="Opiniones de clientes">
+              <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--morado" aria-hidden="true">MR</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Mariana R.</h3>
+                    <p class="opinion-tarjeta__ocasion">Cumpleaños</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">El pastel quedó idéntico al que diseñé en la página. Mis invitados no podían creer que lo hubiera armado desde el celular.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Pastel personalizado de 3 pisos</p>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--mantequilla" aria-hidden="true">CL</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Carlos y Luisa</h3>
+                    <p class="opinion-tarjeta__ocasion">Baby Shower</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">Se acabaron en veinte minutos. Ya tenemos pedido para el próximo mes y varias amigas nos preguntaron dónde los compramos.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Cupcakes de limón y amapola</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--cielo" aria-hidden="true">FT</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Familia González</h3>
+                    <p class="opinion-tarjeta__ocasion">Aniversario de bodas</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">Con el folio supe en todo momento cómo iba mi pedido. Excelente trato en todo momento.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Tres leches clásico</p>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--durazno" aria-hidden="true">DM</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Estefanía H.</h3>
+                    <p class="opinion-tarjeta__ocasion">Cena con amigas</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">El equilibrio entre lo cremoso y lo ácido es perfecto. Ya es el postre oficial de nuestras reuniones.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Cheesecake de fresa</p>
+              </article>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--marino" aria-hidden="true">JA</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Jorge A.</h3>
+                    <p class="opinion-tarjeta__ocasion">Oficina</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">Pedimos galletas para toda la oficina y todos estuvieron encantados. La calidad y precio son excelentes.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Galletas de chispas de chocolate</p>
+              </article>
+            </div>
+            <div class="col-md-6">
+              <article class="opinion-tarjeta h-100">
+                <header class="d-flex align-items-center gap-3 mb-3">
+                  <span class="opinion-tarjeta__avatar opinion-tarjeta__avatar--morado" aria-hidden="true">PV</span>
+                  <div>
+                    <h3 class="opinion-tarjeta__nombre">Paola V.</h3>
+                    <p class="opinion-tarjeta__ocasion">Graduación</p>
+                  </div>
+                </header>
+                <span class="estrellas mb-2" role="img" aria-label="5 de 5 estrellas"></span>
+                <blockquote class="opinion-tarjeta__texto">Elegí cada detalle y el resultado superó lo que imaginaba. Me escribieron para confirmar la fecha y todo salió perfecto.</blockquote>
+                <p class="opinion-tarjeta__pedido mb-0"><span class="badge">Pidió</span> Pastel personalizado de zarzamora</p>
+              </article>
+            </div>
+          </div>
+        </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between mt-4">
+                <div class="carousel-indicators carrusel-opiniones__indicadores position-static m-0">
+                  <button type="button" data-bs-target="#carruselOpiniones" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Opiniones 1 y 2"></button>
+                  <button type="button" data-bs-target="#carruselOpiniones" data-bs-slide-to="1" aria-label="Opiniones 3 y 4"></button>
+                  <button type="button" data-bs-target="#carruselOpiniones" data-bs-slide-to="2" aria-label="Opiniones 5 y 6"></button>
+                </div>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-outline-primary boton-carrusel" data-bs-target="#carruselOpiniones" data-bs-slide="prev" aria-label="Opiniones anteriores">&larr;</button>
+                  <button type="button" class="btn btn-outline-primary boton-carrusel" data-bs-target="#carruselOpiniones" data-bs-slide="next" aria-label="Opiniones siguientes">&rarr;</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION PREGUNTAS FRECUENTES -->
+    <section class="seccion" aria-labelledby="tituloPreguntas">
+      <div class="container">
+        <div class="row gy-5 gx-lg-5 align-items-start">
+          <div class="col-lg-5">
+            <div class="encabezado-seccion">
+              <span class="sobretitulo">Antes de pedir</span>
+              <h2 id="tituloPreguntas">Preguntas frecuentes</h2>
+              <p>Conoce las respuestas a las preguntas más comunes sobre nuestros productos y servicios.</p>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <div class="accordion acordeon-preguntas" id="acordeonPreguntas">
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta1" aria-expanded="true" aria-controls="respuesta1">¿Con cuánta anticipación debo pedir?</button></h3>
+                <div id="respuesta1" class="accordion-collapse collapse show" data-bs-parent="#acordeonPreguntas"><div class="accordion-body">Necesitamos al menos 2 días para hornear y decorar tu pedido. Para pasteles de tres pisos te recomendamos una semana.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta2" aria-expanded="false" aria-controls="respuesta2">¿Puedo personalizar los productos del catálogo?</button></h3>
+                <div id="respuesta2" class="accordion-collapse collapse" data-bs-parent="#acordeonPreguntas"><div class="accordion-body">Los productos del catálogo se piden tal cual están en la vitrina. Si quieres algo único, diseña tu propio pastel en el personalizador.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta3" aria-expanded="false" aria-controls="respuesta3">¿Hacen entregas a domicilio?</button></h3>
+                <div id="respuesta3" class="accordion-collapse collapse" data-bs-parent="#acordeonPreguntas"><div class="accordion-body">Por ahora no. Todos los pedidos se recogen en nuestro local de Av. Reforma 214, Centro, Lerdo, Dgo., en la fecha y horario que elijas al confirmar.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#respuesta4" aria-expanded="false" aria-controls="respuesta4">¿Qué pasa si tengo alguna alergia?</button></h3>
+                <div id="respuesta4" class="accordion-collapse collapse" data-bs-parent="#acordeonPreguntas"><div class="accordion-body">Escríbelo en las notas del pedido. Trabajamos con harina, huevo, lácteos y nueces en la misma cocina, así que avísanos para prepararlo con cuidado.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION PROMOCIONAL/INFO -->
+    <section class="seccion seccion-invertida" aria-labelledby="tituloLlamada">
+      <div class="container">
+        <div class="row align-items-center gy-5 gx-lg-5">
+          <div class="col-lg-7">
+            <span class="sobretitulo">¿Ya sabes qué quieres?</span>
+            <h2 id="tituloLlamada">Diseña tu pastel en minutos.</h2>
+            <p>Sin llamadas ni malos entendidos: ajusta cada detalle en el modelador y mira el precio actualizarse al instante.</p>
+            <a href="cliente/personalizador.html" class="btn btn-light btn-lg">Ir al modelador 3D</a>
+          </div>
+          <div class="col-lg-5">
+            <dl class="banda-cta__datos mb-0">
+              <div><dt>Horneado</dt><dd>El mismo día que se recoge</dd></div>
+              <div><dt>Personalización</dt><dd>Cambios ilimitados antes de pagar</dd></div>
+              <div><dt>Seguimiento</dt><dd>Un folio único por pedido</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCION UBICACIÓN -->
+    <section class="seccion" aria-labelledby="tituloUbicacion">
+      <div class="container">
+        <div class="row gy-5 gx-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <span class="sobretitulo">Visítanos</span>
+            <h2 id="tituloUbicacion">Estamos en Lerdo, Durango</h2>
+            <p>Pasa por tu pedido o conoce la vitrina del día. Te esperamos de martes a domingo, de 9:00 a 20:00.</p>
+            <a class="btn btn-outline-primary" href="cliente/pedido.html">Hacer un pedido</a>
+          </div>
+          <div class="col-lg-7">
+            <div class="ratio ratio-16x9 mapa">
+              <iframe src="https://www.google.com/maps?q=Lerdo,+Durango,+M%C3%A9xico&amp;output=embed" title="Mapa con la ubicación de Sweet Crumbs en Lerdo, Durango" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="sc-pie"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/navegacion.js"></script>
+  <script src="js/cuenta.js"></script>
+  <script src="js/tarjetas.js"></script>
+  <script src="js/inicio.js"></script>
+</body>
+</html>
