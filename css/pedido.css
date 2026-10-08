@@ -1,227 +1,92 @@
 .portada-pedido {
-    padding: var(--espacio-6) 0 var(--espacio-4);
-    margin-bottom: var(--espacio-5);
+  padding: var(--espacio-6) 0 var(--espacio-4);
+  margin-bottom: var(--espacio-5);
 }
 
 .pedido-vacio {
-    padding: var(--espacio-8) var(--espacio-5);
+  padding: var(--espacio-8) var(--espacio-5);
 }
 
-/* SECCION INFO/RESUMEN PEDIDO*/
+/* RESUMEN DEL PEDIDO */
 .resumen-pedido {
-    position: sticky;
-    top: calc(var(--alto-encabezado) + 16px);
-    border: 0;
-    border-radius: var(--radio-grande);
-    box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.14);
+  position: sticky;
+  top: calc(var(--alto-encabezado) + 16px);
+  border: 0;
+  border-radius: var(--radio-grande);
+  box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.14);
 }
 
 .resumen-pedido__articulo:last-of-type {
-    border-bottom: 0;
+  border-bottom: 0;
 }
 
 .resumen-pedido__totales {
-    margin-top: var(--espacio-4);
-    padding-top: var(--espacio-4);
-    border-top: 1px solid var(--color-linea);
+  margin-top: var(--espacio-4);
+  padding-top: var(--espacio-4);
+  border-top: 1px solid var(--color-linea);
 }
 
 .resumen-pedido__totales .fila-total:last-child {
-    font-size: 1.15rem;
-    color: var(--paleta-marino);
-}
-
-.selector-cantidad {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: var(--espacio-2);
-}
-
-.selector-cantidad .btn {
-    width: 28px;
-    height: 28px;
-    padding: 0;
-    line-height: 1;
-    border-radius: 50%;
-}
-
-.selector-cantidad span {
-    min-width: 16px;
-    text-align: center;
-    font-family: var(--fuente-mono);
-    font-size: 0.85rem;
+  font-size: 1.15rem;
+  color: var(--paleta-marino);
 }
 
 @media (max-width: 991.98px) {
-    .resumen-pedido {
-        position: static;
-    }
+  .resumen-pedido {
+    position: static;
+  }
 }
 
-/* SECCION FORMULARIO */
+/* FORMULARIO */
 .tarjeta-formulario {
-    border: 0;
-    border-radius: var(--radio-grande);
-    box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.14);
+  border: 0;
+  border-radius: var(--radio-grande);
+  box-shadow: inset 0 0 0 1.5px rgba(24, 55, 110, 0.14);
 }
 
 .tarjeta-formulario .card-body {
-    padding: var(--espacio-6);
+  padding: var(--espacio-6);
 }
 
 @media (max-width: 575.98px) {
-    .tarjeta-formulario .card-body {
-        padding: var(--espacio-4);
-    }
+  .tarjeta-formulario .card-body {
+    padding: var(--espacio-4);
+  }
 }
 
-/* SECCION CONFIRMACION CON FOLIO */
-.confirmacion {
-    padding: var(--espacio-6) var(--espacio-4);
-    border: 0;
-    border-radius: var(--radio-grande);
-    box-shadow: var(--sombra-suave);
-}
-
-.codigo-folio {
-    display: inline-block;
-    margin: var(--espacio-4) 0;
-    padding: 12px 26px;
-    border-radius: var(--radio-medio);
-    background: var(--paleta-mantequilla);
-    color: var(--paleta-chocolate);
-    font-family: var(--fuente-mono);
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-}
-
-.seguimiento-estado {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: var(--espacio-7);
-    margin: var(--espacio-6) 0;
-    padding: 0;
-}
-
-.paso-estado {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--espacio-2);
-    min-width: 100px;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-tinta-suave);
-}
-
-.paso-estado .punto {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: var(--color-linea-fuerte);
-}
-
-.paso-estado.activo {
-    color: var(--color-tinta);
-}
-
-.paso-estado.activo .punto {
-    background: var(--paleta-morado);
-}
-
-.detalles-confirmacion {
-    max-width: 380px;
-    margin-bottom: var(--espacio-6);
-    font-size: 0.9rem;
-    text-align: left;
-}
-
-.detalles-confirmacion div {
-    display: flex;
-    justify-content: space-between;
-    gap: var(--espacio-4);
-    padding: 8px 0;
-    border-bottom: 1px solid var(--color-linea);
-}
-
-.detalles-confirmacion div:last-child {
-    border-bottom: 0;
-}
-
-.detalles-confirmacion dt {
-    font-weight: 400;
-    color: var(--color-tinta-suave);
-}
-
-.detalles-confirmacion dd {
-    margin: 0;
-    font-weight: 600;
-    text-align: right;
-}
-
-/* SECCION SEGUIMIENTO CON FOLIO*/
-.caja-seguimiento {
-    margin-top: var(--espacio-6);
-    padding: var(--espacio-5);
-    border-radius: var(--radio-grande);
-    background: var(--paleta-lavanda);
-}
-
-.caja-seguimiento p {
-    color: var(--paleta-chocolate);
-}
-
-.resultado-correcto {
-    font-weight: 600;
-    color: var(--color-exito);
-}
-
-/* SECCION AVISO: solo se recoge en el local */
+/* AVISO: solo se recoge en el local */
 .aviso-recogida {
-    display: flex;
-    align-items: center;
-    gap: var(--espacio-4);
-    padding: var(--espacio-4) var(--espacio-5);
-    border-radius: var(--radio-medio);
-    background: var(--paleta-mantequilla);
-    color: var(--paleta-chocolate);
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  padding: var(--espacio-4) var(--espacio-5);
+  border-radius: var(--radio-medio);
+  background: var(--paleta-mantequilla);
+  color: var(--paleta-chocolate);
 }
 
 .aviso-recogida__icono {
-    display: inline-flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: var(--paleta-chocolate);
-    color: var(--paleta-mantequilla);
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--paleta-chocolate);
+  color: var(--paleta-mantequilla);
 }
 
 .aviso-recogida p {
-    font-size: 0.88rem;
-    color: var(--paleta-chocolate);
+  font-size: 0.88rem;
+  color: var(--paleta-chocolate);
 }
 
-/* SECCION AVISO: UNIRSE CON CUENTA */
-.aviso-cuenta {
-    margin-bottom: var(--espacio-5);
-    padding: var(--espacio-3) var(--espacio-4);
-    border-radius: var(--radio-chico);
-    background: var(--color-primario-claro);
-    font-size: 0.88rem;
-    color: var(--paleta-marino);
-}
-
-.aviso-cuenta[hidden] {
-    display: none;
-}
-
-.aviso-cuenta--activa {
-    background: #E3F1E9;
-    color: #25583D;
+/* MENSAJE DE PEDIDO CONFIRMADO */
+.pedido-ok {
+  border: 0;
+  border-radius: var(--radio-medio);
+  background: #E3F1E9;
+  color: #25583D;
+  font-weight: 600;
 }

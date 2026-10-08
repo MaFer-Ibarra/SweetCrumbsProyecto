@@ -1,18 +1,16 @@
-/** Ruta a una página de /cliente desde la página actual (index.html o cualquiera dentro de cliente/). */
+const CLAVE_CARRITO = 'sweetcrumbs_carrito_v1';
+
 function rutaCliente(archivo) {
   return `${document.body.dataset.raiz || ''}cliente/${archivo}`;
 }
 
-const CLAVE_CARRITO = 'sweetcrumbs_carrito_v1';
-const CLAVE_PEDIDOS = 'sweetcrumbs_pedidos_v1';
-
-/** Lee un arreglo de localStorage. */
-function leerAlmacenamiento(clave) {
+/** Lee un valor de localStorage. Si no existe o falla, devuelve el valor por defecto. */
+function leerAlmacenamiento(clave, valorPorDefecto = []) {
   try {
     const guardado = localStorage.getItem(clave);
-    return guardado ? JSON.parse(guardado) : [];
+    return guardado ? JSON.parse(guardado) : valorPorDefecto;
   } catch (error) {
-    return [];
+    return valorPorDefecto;
   }
 }
 
@@ -21,10 +19,11 @@ function guardarAlmacenamiento(clave, valor) {
   try {
     localStorage.setItem(clave, JSON.stringify(valor));
   } catch (error) {
-    //almacenamiento bloqueado, se trabaja sin guardar}
-}
+    // Ignorar error
+    }
 }
 
+/* ---------- Carrito ---------- */
 const Carrito = {
   leer() {
     return leerAlmacenamiento(CLAVE_CARRITO);
@@ -35,10 +34,11 @@ const Carrito = {
     document.dispatchEvent(new CustomEvent('carrito:cambio'));
   },
 
-  /** Productos del catAlogo se acumulan por id, pasteles personalizados son lineas únicas. */
+  /** Si  producto ya está en el carrito, solo aumenta la cantidad. */
   agregar(articulo) {
     const articulos = Carrito.leer();
-    const existente = articulos.find((a) => a.tipo === 'catalogo' && articulo.tipo === 'catalogo' && a.id === articulo.id);
+    const existente = articulos.find((a) => a.id === articulo.id);
+
     if (existente) {
       existente.cantidad += articulo.cantidad || 1;
     } else {
@@ -73,36 +73,17 @@ const Carrito = {
   },
 };
 
-const Pedidos = {
-  guardar(pedido) {
-    const pedidos = leerAlmacenamiento(CLAVE_PEDIDOS);
-    pedidos.push(pedido);
-    guardarAlmacenamiento(CLAVE_PEDIDOS, pedidos);
-  },
-
-  buscar(folio) {
-    return leerAlmacenamiento(CLAVE_PEDIDOS).find((p) => p.folio.toUpperCase() === folio.toUpperCase());
-  },
-};
-
-/** Generar folio con la fecha y cuatro caracteres al azar (ej SC-20260825-AB12) */
-function generarFolio() {
-  const hoy = new Date();
-  const mes = String(hoy.getMonth() + 1).padStart(2, '0');
-  const dia = String(hoy.getDate()).padStart(2, '0');
-  const azar = Math.random().toString(36).slice(2, 6).toUpperCase();
-  return `SC-${hoy.getFullYear()}${mes}${dia}-${azar}`;
-}
-
-/* Panel Carrito lateral */
+/* ---------- Panel lateral del carrito ---------- */
 function dibujarCajonCarrito() {
-  const cuerpo = document.getElementById('cuerpoCajonCarrito');
-  const pie = document.getElementById('pieCajonCarrito');
+  const cuerpo = porId('cuerpoCajonCarrito');
+  const pie = porId('pieCajonCarrito');
+
   if (!cuerpo) return;
 
   const articulos = Carrito.leer();
   const cantidad = Carrito.cantidad();
 
+  // numero rojo sobre el icono del carrito
   document.querySelectorAll('.js-contador-carrito').forEach((insignia) => {
     insignia.textContent = String(cantidad);
     insignia.classList.toggle('d-none', cantidad === 0);
@@ -121,25 +102,28 @@ function dibujarCajonCarrito() {
 
   cuerpo.innerHTML = articulos.map((a) => `
     <article class="articulo-carrito">
-      <div class="articulo-carrito__arte">${iconoPara(a.icono)}</div>
+      <div class="articulo-carrito__arte">${arteArticulo(a)}</div>
       <div>
         <h3 class="articulo-carrito__nombre">${escaparHtml(a.nombre)}</h3>
-        <p class="articulo-carrito__detalle">${escaparHtml(a.detalle || '')}${a.tipo === 'catalogo' ? ` · ${a.cantidad} pza.` : ''}</p>
+        <p class="articulo-carrito__detalle">${escaparHtml(a.detalle || '')} · ${a.cantidad} pza.</p>
         <button type="button" class="btn btn-link btn-sm p-0 text-danger" data-quitar="${a.idLinea}">Quitar</button>
       </div>
       <strong class="articulo-carrito__precio">${formatearMoneda(a.precio * a.cantidad)}</strong>
     </article>`).join('');
-
   pie.innerHTML = `
     <div class="fila-total"><span>Total</span><strong>${formatearMoneda(Carrito.total())}</strong></div>
     <a href="${rutaCliente('pedido.html')}" class="btn btn-primary w-100">Ir a pagar</a>
     <p class="aviso-solo-local">Entrega solo en el local · Lerdo, Dgo.</p>`;
 }
 
-// Un solo "escuchador" para quitar artículos, aunque el carrito se vuelva a dibujar.
+// Un solo escuchador para quitar artículos, aunque el carrito se vuelva a dibujar.
 document.addEventListener('click', (evento) => {
   const botonQuitar = evento.target.closest('[data-quitar]');
-  if (botonQuitar && botonQuitar.closest('#cuerpoCajonCarrito')) Carrito.quitar(botonQuitar.dataset.quitar);
+
+  if (botonQuitar && botonQuitar.closest('#cuerpoCajonCarrito')) {
+    Carrito.quitar(botonQuitar.dataset.quitar);
+  }
 });
+
 document.addEventListener('carrito:cambio', dibujarCajonCarrito);
 document.addEventListener('DOMContentLoaded', dibujarCajonCarrito);

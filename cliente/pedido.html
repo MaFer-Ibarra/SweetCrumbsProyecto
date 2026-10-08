@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mi pedido — Sweet Crumbs</title>
-  <meta name="description" content="Revisa tu pedido, indica la fecha de entrega y confirma. Recibirás un folio único para dar seguimiento.">
-  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <meta name="description" content="Revisa tu pedido, indica la fecha de recogida y confírmalo.">
+  <link rel="icon" type="image/svg+xml" href="../img/logo/logo-pastelito.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
@@ -26,20 +26,22 @@
         <div class="encabezado-seccion">
           <span class="sobretitulo">Último paso</span>
           <h1 id="tituloPedido">Mi pedido</h1>
-          <p>Revisa lo que llevas, dinos cuándo pasarás por él y confirma. Te daremos un folio para darle seguimiento.</p>
+          <p>Revisa lo que llevas, dinos cuándo pasarás por él y confirma.</p>
         </div>
       </div>
     </section>
 
     <section class="container pb-5">
+      <!-- MENSAJE DE PEDIDO CONFIRMADO (queda fuera del formulario para verse cuando el carrito se vacía) -->
+      <div class="alert pedido-ok d-none" id="mensajePedidoOk" role="status">
+        ¡Pedido confirmado! Gracias, pronto nos pondremos en contacto contigo.
+      </div>
+
       <!-- SECCION CUANDO CARRITO ESTA VACIO -->
       <div class="pedido-vacio text-center d-none" id="pedidoVacio">
         <h2>Tu carrito está vacío</h2>
-        <p>Agrega algo del catálogo o diseña un pastel a tu gusto en el modelador.</p>
-        <div class="d-flex flex-wrap justify-content-center gap-3">
-          <a href="catalogo.html" class="btn btn-primary">Ver catálogo</a>
-          <a href="personalizador.html" class="btn btn-outline-primary">Personalizar un pastel</a>
-        </div>
+        <p>Agrega algo del catálogo para empezar tu pedido.</p>
+        <a href="catalogo.html" class="btn btn-primary">Ver catálogo</a>
       </div>
 
       <!-- SECCION CARRITO ACTIVO / RESUMEN Y FORMULARIO -->
@@ -60,24 +62,23 @@
           <div class="card tarjeta-formulario">
             <div class="card-body">
               <h2 class="h4 mb-3">Datos para recoger tu pedido</h2>
-              <div class="aviso-cuenta" id="avisoCuentaPedido" hidden></div>
               <form id="formularioPedido" novalidate>
                 <div class="row g-3">
-              <div class="col-md-6">
-                <label for="clienteNombre" class="form-label">Nombre completo</label>
-                <input type="text" class="form-control" id="clienteNombre" autocomplete="name" placeholder="Tu nombre" required minlength="3">
-                <div class="invalid-feedback">Escribe tu nombre completo (mínimo 3 letras).</div>
-              </div>
-              <div class="col-md-6">
-                <label for="clienteTelefono" class="form-label">Teléfono</label>
-                <input type="tel" class="form-control" id="clienteTelefono" autocomplete="tel" placeholder="871 123 4567" required inputmode="numeric">
-                <div class="invalid-feedback">Escribe un teléfono de 10 dígitos.</div>
-              </div>
-              <div class="col-12">
-                <label for="clienteCorreo" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="clienteCorreo" autocomplete="email" placeholder="tu@correo.com" required>
-                <div class="invalid-feedback">Escribe un correo válido, por ejemplo tu@correo.com.</div>
-              </div>
+                  <div class="col-md-6">
+                    <label for="clienteNombre" class="form-label">Nombre completo</label>
+                    <input type="text" class="form-control" id="clienteNombre" autocomplete="name" placeholder="Tu nombre" required minlength="3">
+                    <div class="invalid-feedback">Escribe tu nombre completo (mínimo 3 letras).</div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="clienteTelefono" class="form-label">Teléfono</label>
+                    <input type="tel" class="form-control" id="clienteTelefono" autocomplete="tel" placeholder="871 123 4567" required inputmode="numeric" pattern="[0-9 \(\)\-]{10,15}">
+                    <div class="invalid-feedback">Escribe un teléfono de 10 dígitos.</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="clienteCorreo" class="form-label">Correo electrónico</label>
+                    <input type="email" class="form-control" id="clienteCorreo" autocomplete="email" placeholder="tu@correo.com" required pattern="[^\s@]+@[^\s@]+\.[^\s@]{2,}">
+                    <div class="invalid-feedback">Escribe un correo válido, por ejemplo tu@correo.com.</div>
+                  </div>
                   <div class="col-12">
                     <div class="aviso-recogida" role="note">
                       <span class="aviso-recogida__icono" aria-hidden="true">
@@ -89,11 +90,12 @@
                       </div>
                     </div>
                   </div>
-              <div class="col-md-6">
-                <label for="clienteFecha" class="form-label">Fecha de recogida</label>
-                <input type="date" class="form-control" id="clienteFecha" required>
-                <div class="form-text">Necesitamos al menos 2 días para preparar tu pedido. Se recoge en el local.</div><div class="invalid-feedback">Elige una fecha de recogida con al menos 2 días de anticipación.</div>
-              </div>
+                  <div class="col-md-6">
+                    <label for="clienteFecha" class="form-label">Fecha de recogida</label>
+                    <input type="date" class="form-control" id="clienteFecha" required>
+                    <div class="form-text">Necesitamos al menos 2 días para preparar tu pedido. Se recoge en el local.</div>
+                    <div class="invalid-feedback">Elige una fecha de recogida con al menos 2 días de anticipación.</div>
+                  </div>
                   <div class="col-md-6">
                     <label for="clienteHorario" class="form-label">Horario para recoger</label>
                     <select class="form-select" id="clienteHorario" required>
@@ -133,31 +135,6 @@
           </div>
         </div>
       </div>
-
-      <!-- SECION CONFIRMACION PEDIDO  -->
-      <section class="confirmacion card d-none" id="confirmacionPedido" aria-labelledby="tituloConfirmacion" tabindex="-1">
-        <div class="card-body text-center">
-          <span class="sobretitulo justify-content-center">Pedido confirmado</span>
-          <h2 id="tituloConfirmacion">¡Gracias! Ya vamos a hornear.</h2>
-          <p>Guarda este folio: lo puedes usar para dar seguimiento a tu pedido en cualquier momento.</p>
-          <div class="codigo-folio" id="valorFolio">SC-00000000-0000</div>
-          <ol class="seguimiento-estado list-unstyled" id="seguimientoEstado" aria-label="Estado del pedido"></ol>
-          <dl class="detalles-confirmacion mx-auto" id="detallesConfirmacion"></dl>
-          <a href="../index.html" class="btn btn-outline-primary">Volver al inicio</a>
-        </div>
-      </section>
-
-      <!-- SECION SEGUIMIENTO POR FOLIO -->
-      <section class="caja-seguimiento" aria-labelledby="tituloSeguimiento">
-        <h2 class="h4" id="tituloSeguimiento">¿Ya tienes un folio?</h2>
-        <p class="mb-3">Escríbelo para ver el estado de tu pedido. El rastreo solo funciona en este mismo navegador, porque aún no está conectado a una base de datos.</p>
-        <div class="input-group">
-          <label for="campoFolioSeguimiento" class="visually-hidden">Folio del pedido</label>
-          <input type="text" class="form-control" id="campoFolioSeguimiento" placeholder="SC-20260825-AB12" autocomplete="off">
-          <button class="btn btn-primary" id="botonSeguirFolio" type="button">Rastrear</button>
-        </div>
-        <div id="resultadoSeguimiento" class="mt-3" aria-live="polite"></div>
-      </section>
     </section>
   </main>
 

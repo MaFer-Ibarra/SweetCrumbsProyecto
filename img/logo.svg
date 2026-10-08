@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="titulo-logo">
-  <title id="titulo-logo">Sweet Crumbs: cupcake con betún de capas</title>
-  <path d="M14 34h36l-4.5 22.2A3 3 0 0 1 42.6 58H21.4a3 3 0 0 1-2.9-1.8z" fill="#18376E"/>
-  <path d="M24 37l1.6 18M32 37v18M40 37l-1.6 18" stroke="#ABD1E9" stroke-width="2" stroke-linecap="round" opacity=".65"/>
-  <path d="M9 35c0-6.600 5.400-11 12-11h22c6.600 0 12 4.400 12 11z" fill="#6E5890"/>
-  <path d="M15 26c0-6.500 6.500-11 17-11s17 4.500 17 11z" fill="#BAC1E3"/>
-  <path d="M22.500 17.500c0-5.200 4.200-8.500 9.500-8.500s9.500 3.300 9.500 8.500z" fill="#ABD1E9"/>
-  <circle cx="32" cy="7.500" r="3.600" fill="#FFEBAA" stroke="#382322" stroke-width="1.600"/>
-</svg>

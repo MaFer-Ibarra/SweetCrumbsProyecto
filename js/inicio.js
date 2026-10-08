@@ -1,10 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
-  dibujarDestacados();
-});
+document.addEventListener('DOMContentLoaded', dibujarDestacados);
 
 /** Muestra en la portada los productos marcados como destacados. */
 function dibujarDestacados() {
-  const cuadricula = document.getElementById('cuadriculaDestacados');
+  const cuadricula = porId('cuadriculaDestacados');
 
   if (!cuadricula) return;
 

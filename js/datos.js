@@ -1,4 +1,4 @@
-/* DATOS (SUSTIYE AL BASE DE DATOS POR EL MOMENTO) */
+/*  productos y funciones de ayuda*/
 // Iconos SVG para cada tipo de producto.
 const ICONOS = {
   pastel: `<svg viewBox="0 0 120 120" fill="currentColor" fill-opacity="0.14" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 66c0-7 9-12 20-12s20 5 20 12" stroke-linecap="round"/><path d="M60 66c0-7 9-12 20-12s20 5 20 12" stroke-linecap="round"/><rect x="20" y="66" width="80" height="30" rx="6"/><rect x="14" y="90" width="92" height="12" rx="4"/><path d="M40 54V38M60 54V32M80 54V38" stroke-linecap="round"/><circle cx="40" cy="30" r="4"/><circle cx="60" cy="24" r="4"/><circle cx="80" cy="30" r="4"/></svg>`,
@@ -11,24 +11,43 @@ function iconoPara(type) {
   return ICONOS[type] || ICONOS.pastel;
 }
 
-// ARREGLO DE PRODUCTOS 
+/* ---------- Imágenes ---------- */
+function rutaImagen(ruta) {
+  return `${document.body.dataset.raiz || ''}${ruta}`;
+}
+
+// Devuelve la foto del producto; si no tiene foto, usa su icono .
+function arteProducto(producto) {
+  if (producto && producto.imagen) {
+    return `<img src="${rutaImagen(producto.imagen)}" alt="${escaparHtml(producto.nombre)}" loading="lazy">`;
+  }
+  return iconoPara(producto && producto.icono);
+}
+
+// Para los artículos del carrito: busca la foto del producto por id.
+function arteArticulo(articulo) {
+  const producto = PRODUCTOS.find((p) => p.id === articulo.id);
+  return producto ? arteProducto(producto) : iconoPara(articulo.icono);
+}
+
+// Productos del catálogo
 const PRODUCTOS = [
-  { id: 'p01', nombre: 'Tres Leches Clásico', categoria: 'pasteles', precio: 420, unidad: '8 porciones', icono: 'pastel', destacado: true, descripcion: 'Bizcocho ligero bañado en tres leches, con un toque de canela.' },
-  { id: 'p02', nombre: 'Red Velvet de Autor', categoria: 'pasteles', precio: 480, unidad: '8 porciones', icono: 'pastel', destacado: true, descripcion: 'Terciopelo rojo con queso crema batido a mano.' },
-  { id: 'p03', nombre: 'Chocolate Belga 70%', categoria: 'pasteles', precio: 460, unidad: '8 porciones', icono: 'pastel', destacado: true, descripcion: 'Capas húmedas de chocolate intenso, ganache espejo.' },
-  { id: 'p04', nombre: 'Zanahoria y Nuez', categoria: 'pasteles', precio: 440, unidad: '8 porciones', icono: 'pastel', destacado: false, descripcion: 'Especiado, con nuez tostada y frosting de queso crema.' },
-  { id: 'p05', nombre: 'Pistache Real', categoria: 'pasteles', precio: 520, unidad: '8 porciones', icono: 'pastel', destacado: true, descripcion: 'Pistache molido en piedra, relleno de mazapán ligero.' },
-  { id: 'p06', nombre: 'Cupcakes Vainilla Bean', categoria: 'cupcakes', precio: 180, unidad: 'caja de 6', icono: 'cupcake', destacado: false, descripcion: 'Vainilla de Papantla, betún merengue suizo.' },
-  { id: 'p07', nombre: 'Cupcakes Red Velvet', categoria: 'cupcakes', precio: 195, unidad: 'caja de 6', icono: 'cupcake', destacado: false, descripcion: 'Mini versión de nuestro clásico, en caja para compartir.' },
-  { id: 'p08', nombre: 'Cupcakes Limón y Amapola', categoria: 'cupcakes', precio: 190, unidad: 'caja de 6', icono: 'cupcake', destacado: false, descripcion: 'Ralladura fresca, semillas de amapola, glaseado cítrico.' },
-  { id: 'p09', nombre: 'Cheesecake de Zarzamora', categoria: 'postres', precio: 380, unidad: 'redondo, 10 cm', icono: 'tarta', destacado: true, descripcion: 'Horneado lento, coulis de zarzamora de temporada.' },
-  { id: 'p10', nombre: 'Tartaleta de Frutas', categoria: 'postres', precio: 175, unidad: 'redondo, 12 cm', icono: 'tarta', destacado: true, descripcion: 'Base crujiente, relleno de frutas de temporada.' },
-  { id: 'p11', nombre: 'Cheesecake de Mango', categoria: 'postres', precio: 350, unidad: 'redonda, 18 cm', icono: 'tarta', destacado: false, descripcion: 'Costra crocante, curd de mango, trozos de fruta.' },
-  { id: 'p12', nombre: 'Galleta de Chispas de Chocolate', categoria: 'galletas', precio: 80, unidad: 'caja de 6', icono: 'galleta', destacado: false, descripcion: 'Mantequilla dorada, chispas de chocolate semiamargo y sal de mar.' },
-  { id: 'p13', nombre: 'Galletas de Chocolate Amargo', categoria: 'galletas', precio: 160, unidad: 'caja de 6', icono: 'galleta', destacado: false, descripcion: 'A base de chocolate amargo, crujiente y deliciosa.' },
-  { id: 'p14', nombre: 'Galleta Red Velvet Rellena', categoria: 'galletas', precio: 100, unidad: 'caja de 6', icono: 'galleta', destacado: false, descripcion: 'Masa de terciopelo rojo rellena de queso crema.' },
-  { id: 'p15', nombre: 'Alfajores de Dulce de Leche', categoria: 'galletas', precio: 130, unidad: 'caja de 6', icono: 'galleta', destacado: false, descripcion: 'Dos galletas suaves, dulce de leche cremoso y coco rallado.' },
-  { id: 'p16', nombre: 'Galleta de Avena y Arándano', categoria: 'galletas', precio: 65, unidad: 'caja de 6', icono: 'galleta', destacado: false, descripcion: 'Avena entera, arándano deshidratado y un toque de canela.' },
+  { id: 'p01', nombre: 'Tres Leches Clásico', categoria: 'pasteles', precio: 420, unidad: '8 porciones', icono: 'pastel', imagen: 'img/catalogo/pasteles/pastel-tres-leches.jpg', destacado: true, descripcion: 'Bizcocho ligero bañado en tres leches, con un toque de canela.' },
+  { id: 'p02', nombre: 'Red Velvet de Autor', categoria: 'pasteles', precio: 480, unidad: '8 porciones', icono: 'pastel', imagen: 'img/catalogo/pasteles/pastel-red-velvet.jpg', destacado: true, descripcion: 'Terciopelo rojo con queso crema batido a mano.' },
+  { id: 'p03', nombre: 'Chocolate Belga 70%', categoria: 'pasteles', precio: 460, unidad: '8 porciones', icono: 'pastel', imagen: 'img/catalogo/pasteles/pastel-chocolate-belga.jpg', destacado: true, descripcion: 'Capas húmedas de chocolate intenso, ganache espejo.' },
+  { id: 'p04', nombre: 'Zanahoria y Nuez', categoria: 'pasteles', precio: 440, unidad: '8 porciones', icono: 'pastel', imagen: 'img/catalogo/pasteles/pastel-zanahoria-nuez.jpg', destacado: false, descripcion: 'Especiado, con nuez tostada y frosting de queso crema.' },
+  { id: 'p05', nombre: 'Pistache Real', categoria: 'pasteles', precio: 520, unidad: '8 porciones', icono: 'pastel', imagen: 'img/catalogo/pasteles/pastel-pistachio.jpg', destacado: true, descripcion: 'Pistache molido en piedra, relleno de mazapán ligero.' },
+  { id: 'p06', nombre: 'Cupcakes Vainilla Bean', categoria: 'cupcakes', precio: 180, unidad: 'caja de 6', icono: 'cupcake', imagen: 'img/catalogo/cupcakes/cupcake-vainilla.jpg', destacado: false, descripcion: 'Vainilla de Papantla, betún merengue suizo.' },
+  { id: 'p07', nombre: 'Cupcakes Red Velvet', categoria: 'cupcakes', precio: 195, unidad: 'caja de 6', icono: 'cupcake', imagen: 'img/catalogo/cupcakes/cupcake-red-velvet.jpg', destacado: false, descripcion: 'Mini versión de nuestro clásico, en caja para compartir.' },
+  { id: 'p08', nombre: 'Cupcakes Limón y Amapola', categoria: 'cupcakes', precio: 190, unidad: 'caja de 6', icono: 'cupcake', imagen: 'img/catalogo/cupcakes/cupcake-limon-amapola.jpg', destacado: false, descripcion: 'Ralladura fresca, semillas de amapola, glaseado cítrico.' },
+  { id: 'p09', nombre: 'Cheesecake de Zarzamora', categoria: 'postres', precio: 380, unidad: 'redondo, 10 cm', icono: 'tarta', imagen: 'img/catalogo/postres/cheesecake-zarzamora.jpg', destacado: true, descripcion: 'Horneado lento, coulis de zarzamora de temporada.' },
+  { id: 'p10', nombre: 'Tartaleta de Frutas', categoria: 'postres', precio: 175, unidad: 'redondo, 12 cm', icono: 'tarta', imagen: 'img/catalogo/postres/tartaleta-frutas.jpg', destacado: true, descripcion: 'Base crujiente, relleno de frutas de temporada.' },
+  { id: 'p11', nombre: 'Cheesecake de Mango', categoria: 'postres', precio: 350, unidad: 'redonda, 18 cm', icono: 'tarta', imagen: 'img/catalogo/postres/cheesecake-mango.jpg', destacado: false, descripcion: 'Costra crocante, curd de mango, trozos de fruta.' },
+  { id: 'p12', nombre: 'Galleta de Chispas de Chocolate', categoria: 'galletas', precio: 80, unidad: 'caja de 6', icono: 'galleta', imagen: 'img/catalogo/galletas/galletas-chispas-chocolate.jpg', destacado: false, descripcion: 'Mantequilla dorada, chispas de chocolate semiamargo y sal de mar.' },
+  { id: 'p13', nombre: 'Galletas de Chocolate Amargo', categoria: 'galletas', precio: 160, unidad: 'caja de 6', icono: 'galleta', imagen: 'img/catalogo/galletas/galletas-chocolate.jpg', destacado: false, descripcion: 'A base de chocolate amargo, crujiente y deliciosa.' },
+  { id: 'p14', nombre: 'Galleta Red Velvet Rellena', categoria: 'galletas', precio: 100, unidad: 'caja de 6', icono: 'galleta', imagen: 'img/catalogo/galletas/galletas-red-velvet.jpg', destacado: false, descripcion: 'Masa de terciopelo rojo rellena de queso crema.' },
+  { id: 'p15', nombre: 'Alfajores de Dulce de Leche', categoria: 'galletas', precio: 130, unidad: 'caja de 6', icono: 'galleta', imagen: 'img/catalogo/galletas/alfajores-dulce-leche.jpg', destacado: false, descripcion: 'Dos galletas suaves, dulce de leche cremoso y coco rallado.' },
+  { id: 'p16', nombre: 'Galleta de Avena y Arándano', categoria: 'galletas', precio: 65, unidad: 'caja de 6', icono: 'galleta', imagen: 'img/catalogo/galletas/galletas-avena-arandano.jpg', destacado: false, descripcion: 'Avena entera, arándano deshidratado y un toque de canela.' },
 ];
 
 const CATEGORIAS = [
@@ -39,12 +58,20 @@ const CATEGORIAS = [
   { id: 'galletas', etiqueta: 'Galletas' },
 ];
 
+/** Atajo para document.getElementById. */
+function porId(id) {
+  return document.getElementById(id);
+}
+
 const formatoMoneda = new Intl.NumberFormat('es-MX', { style: 'currency', currency: 'MXN', maximumFractionDigits: 0 });
-function formatearMoneda(n) { return formatoMoneda.format(n); }
+function formatearMoneda(n) {
+  return formatoMoneda.format(n);
+}
 
 /** Convierte texto del usuario en texto seguro para insertarlo con innerHTML. */
 function escaparHtml(texto) {
-  return String(texto).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const reemplazos = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+  return String(texto).replace(/[&<>"']/g, (c) => reemplazos[c]);
 }
 
 /** Fecha mínima de entrega (hoy + 2 días) en formato AAAA-MM-DD, en hora local. */

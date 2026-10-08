@@ -1,43 +1,43 @@
 .portada-catalogo {
-    padding: var(--espacio-7) 0 var(--espacio-5);
-    margin-bottom: var(--espacio-6);
+  padding: var(--espacio-7) 0 var(--espacio-5);
+  margin-bottom: var(--espacio-6);
 }
 
 .portada-catalogo .encabezado-seccion {
-    margin-bottom: var(--espacio-5);
+  margin-bottom: var(--espacio-5);
 }
 
 /* DISEÑO BUSCADOR */
 .caja-busqueda .input-group-text {
-    border-right: 0;
-    border-radius: var(--radio-pildora) 0 0 var(--radio-pildora);
-    padding-left: 1rem;
+  border-right: 0;
+  border-radius: var(--radio-pildora) 0 0 var(--radio-pildora);
+  padding-left: 1rem;
 }
 
 .caja-busqueda .form-control {
-    border-left: 0;
-    border-radius: 0 var(--radio-pildora) var(--radio-pildora) 0;
+  border-left: 0;
+  border-radius: 0 var(--radio-pildora) var(--radio-pildora) 0;
 }
 
 .contador-catalogo {
-    font-family: var(--fuente-mono);
-    font-size: 0.76rem;
-    color: var(--color-tinta-suave);
+  font-family: var(--fuente-mono);
+  font-size: 0.76rem;
+  color: var(--color-tinta-suave);
 }
 
 .catalogo-vacio {
-    padding: var(--espacio-7) 0;
-    text-align: center;
-    color: var(--color-tinta-suave);
+  padding: var(--espacio-7) 0;
+  text-align: center;
+  color: var(--color-tinta-suave);
 }
 
 /* DISEÑO VENTANA DE DETALLE PRODUCTO */
 
 .modal-content {
-    border: 0;
-    border-radius: var(--radio-grande);
+  border: 0;
+  border-radius: var(--radio-grande);
 }
 
 #modalProductoArte {
-    max-height: 190px;
+  max-height: 190px;
 }
